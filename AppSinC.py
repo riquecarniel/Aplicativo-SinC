@@ -123,8 +123,6 @@ def verificar():
 
     df_ordenada.to_excel(nome_arquivo, sheet_name='Dados', index=False)
 
-########################################################################################################################################################################
-
     # Carregar a planilha para fazer o calculo da fundação
     planilha = pd.read_excel(nome_arquivo, sheet_name='Dados')
 
@@ -226,7 +224,6 @@ def verificar():
     with pd.ExcelWriter(nome_arquivo_salvar, mode='a', engine='openpyxl') as writer:
         dados_iguais.to_excel(writer, sheet_name='Eixo-Estaca-Lado Iguais', index=False)
 
-########################################################################################################################################################################
     # Carrega a planilha
     resumoplaca = pd.read_excel(nome_arquivo_salvar, sheet_name='Dados')
     # Verificar e copiar valores únicos para a planilha Resumo
@@ -254,8 +251,6 @@ def verificar():
     # Salvar na planilha Resumo Suportes
     with pd.ExcelWriter(nome_arquivo_salvar, mode='a', engine='openpyxl') as writer:
         df_resumo_suportes.to_excel(writer, sheet_name='Resumo Suportes', index=False)
-
-########################################################################################################################################################################
 
     dados_faltando = planilha[planilha.isnull().any(axis=1)]
 
